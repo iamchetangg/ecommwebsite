@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import MenuItem from "../menu-item/menu-item.component";
 import "./directory.styles.scss";
 
@@ -11,33 +12,33 @@ class Directory extends React.Component {
           title: "Hats",
           imageUrl: "https://i.ibb.co/cvpntL1/hats.png",
           id: 1,
-          linkUrl: "shop/hats",
+          linkUrl: "hats",
         },
         {
           title: "Jackets",
           imageUrl: "https://i.ibb.co/px2tCc3/jackets.png",
           id: 2,
-          linkUrl: "shop/jackets",
+          linkUrl: "jackets",
         },
         {
           title: "Sneakers",
           imageUrl: "https://i.ibb.co/0jqHpnp/sneakers.png",
           id: 3,
-          linkUrl: "shop/sneakers",
+          linkUrl: "sneakers",
         },
         {
           title: "Womens",
           imageUrl: "https://i.ibb.co/GCCdy8t/womens.png",
           size: "large",
           id: 4,
-          linkUrl: "shop/womens",
+          linkUrl: "womens",
         },
         {
           title: "Mens",
           imageUrl: "https://i.ibb.co/R70vBrQ/men.png",
           size: "large",
           id: 5,
-          linkUrl: "shop/mens",
+          linkUrl: "mens",
         },
       ],
     };
@@ -53,6 +54,7 @@ class Directory extends React.Component {
             size={size}
             subtitle="SHOP NOW"
             imageUrl={imageUrl}
+            linkUrl={linkUrl}
           />
         ))}
       </div>
