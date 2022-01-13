@@ -1,4 +1,11 @@
 .area-holder {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 80px;
+
+  .divider {
+    width: 2px;
+    height: auto;
+    background-color: #e6e6e6;
+  }
 }

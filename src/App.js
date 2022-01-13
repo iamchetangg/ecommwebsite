@@ -5,8 +5,10 @@ import { Route, Routes } from "react-router-dom";
 import ShopPage from "./pages/shop/shop.component";
 import Header from "./components/header-component/header.component";
 import SignInAndSignUpParentPage from "./pages/signin-signup/signin-signup.component";
-import { Fbs } from ".";
-import { auth } from "./firebase/firebase.utils";
+
+import { createUserProfileDoc, auth } from "./firebase/firebase.utils";
+import { onSnapshot } from "firebase/firestore";
+
 
 // async function test(){
 //   const ffs = getFirestore(Fbs);
@@ -27,10 +29,24 @@ class App extends React.Component {
   unsubscribeFromAuth = null;
 
   componentDidMount() {
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async user => {
+      if (user != null) {
+
+        const userRef = await createUserProfileDoc(user);
+        onSnapshot(userRef, (doc) => {
+          if (doc.exists) {
+            this.setState({
+              currentUser: {
+                uid: doc.id, ...doc.data()
+              }
+            });
+            console.log("Current data: ", this.state.currentUser);
+          }
+
+        });
+      }
       this.setState({ currentUser: user });
-      console.log(this.state.currentUser);
-    })
+    });
   }
 
   componentWillUnmount() {
@@ -54,3 +70,4 @@ class App extends React.Component {
 }
 
 export default App;
+

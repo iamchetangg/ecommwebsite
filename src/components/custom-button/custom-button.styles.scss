@@ -39,6 +39,7 @@
   padding: 0 20px 0 20px;
   // text-transform: uppercase;
   font-weight: bolder;
+  transition: 300ms ease all;
 
   &:hover {
     background-color: #357ae8;
@@ -51,6 +52,7 @@
   min-width: 165px;
   width: auto;
   height: 50px;
+  border-radius: 7px;
   // letter-spacing: 0.5px;
   line-height: 50px;
   padding: 0 20px 0 20px;
@@ -62,6 +64,7 @@
   font-weight: bolder;
   border: none;
   cursor: pointer;
+  transition: 300ms ease all;
 
   &:hover {
     background-color: white;
