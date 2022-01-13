@@ -53,12 +53,8 @@ class SignInArea extends React.Component {
           ></FormInput>
 
           <div className="sign-in-buttons">
-            <CustomButton
-              type="submit"
-              label="Sign in with Email"
-              _type="email"
-            />
-            <div className="or">Or</div>
+            <CustomButton type="submit" label="Sign in" _type="email" />
+
             <CustomButton
               type="button"
               label="Sign in with Google"

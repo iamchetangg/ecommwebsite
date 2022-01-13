@@ -1,5 +1,5 @@
 .sign-in {
-  width: 30vw;
+  width: 380px;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -12,11 +12,6 @@
     display: flex;
 
     justify-items: center;
-    justify-content: space-around;
-  }
-  .or {
-    text-align: center;
-    justify-self: center;
-    height: 60;
+    justify-content: space-between;
   }
 }
