@@ -1,0 +1,22 @@
+.sign-in {
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  .title {
+    margin: 10px 0;
+  }
+
+  .sign-in-buttons {
+    display: flex;
+
+    justify-items: center;
+    justify-content: space-around;
+  }
+  .or {
+    text-align: center;
+    justify-self: center;
+    height: 60;
+  }
+}
