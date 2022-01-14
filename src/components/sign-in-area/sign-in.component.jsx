@@ -1,8 +1,9 @@
 import React from "react";
 import CustomButton from "../custom-button/custom-button.component";
 import FormInput from "../form-input/form-input.component";
-import { signInWithGoogle } from "../../firebase/firebase.utils";
+import { signInWithGoogle, auth } from "../../firebase/firebase.utils";
 import "./sign-in.styles.scss";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 class SignInArea extends React.Component {
   constructor(props) {
@@ -53,7 +54,21 @@ class SignInArea extends React.Component {
           ></FormInput>
 
           <div className="sign-in-buttons">
-            <CustomButton type="submit" label="Sign in" _type="email" />
+            <CustomButton
+              type="submit"
+              label="Sign in"
+              _type="email"
+              _onClick={async (event) => {
+                event.preventDefault();
+                const { email, password } = this.state;
+                try {
+                  await signInWithEmailAndPassword(auth, email, password);
+                  this.setState({ email: "", password: "" });
+                } catch (e) {
+                  console.error(e);
+                }
+              }}
+            />
 
             <CustomButton
               type="button"
