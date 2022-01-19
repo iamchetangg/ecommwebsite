@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import HomePage from "./pages/homepage/homepage.component";
-import { Route, Routes, Navigate, Outlet } from "react-router-dom";
+import { Route, Routes, Navigate, } from "react-router-dom";
 import ShopPage from "./pages/shop/shop.component";
 import Header from "./components/header-component/header.component";
 import SignInAndSignUpParentPage from "./pages/signin-signup/signin-signup.component";
@@ -10,6 +10,8 @@ import { createUserProfileDoc, auth } from "./firebase/firebase.utils";
 import { onSnapshot } from "firebase/firestore";
 import { setCurrentUser } from "./redux/user/user.actions";
 
+
+import { toggleCartVisibility, addItem } from "./redux/cart/cart.actions";
 
 // async function test(){
 //   const ffs = getFirestore(Fbs);
@@ -45,6 +47,9 @@ class App extends React.Component {
         });
       }
       setCurrentUser(user);
+
+
+
       //  this.setState({ currentUser: user });
     });
   }
@@ -62,6 +67,7 @@ class App extends React.Component {
 
           <Route path="/shop" element={<ShopPage />} />
 
+
           <Route exact path="/signin" element={this.props.currentUser != null ? (<Navigate to="/" replace={true} />) : (<SignInAndSignUpParentPage />)} />
         </Routes>
 
@@ -70,12 +76,19 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = ({ user }) => ({
-  currentUser: user.currentUser
+const mapStateToProps = ({ user, cart }) => ({
+  currentUser: user.currentUser,
+  hidden: cart.hidden,
+  cartItems: cart.cartItems,
+
+
 });
 
 const mapDispatchToProps = dispatch => ({
-  setCurrentUser: user => dispatch(setCurrentUser(user))
+  setCurrentUser: user => dispatch(setCurrentUser(user)),
+  toggleCartVisibility: cart => dispatch(toggleCartVisibility(cart)),
+  addItem: item => dispatch(addItem(item)),
+
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

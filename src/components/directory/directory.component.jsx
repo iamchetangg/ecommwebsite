@@ -3,7 +3,7 @@ import React from "react";
 import MenuItem from "../menu-item/menu-item.component";
 import "./directory.styles.scss";
 import SECTIONS_DATA from "../../sections.data";
-import SHOP_DATA from "../../shop.data";
+import SHOP_DATA from "../../pages/shop/shop.data";
 
 class Directory extends React.Component {
   constructor() {
