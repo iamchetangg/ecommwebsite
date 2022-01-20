@@ -62,7 +62,7 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <Routes>
+        <Routes >
           <Route exact path="/" element={<HomePage props={this.props} />} />
 
           <Route path="/shop" element={<ShopPage />} />
