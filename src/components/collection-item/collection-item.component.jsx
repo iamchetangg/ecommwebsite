@@ -31,7 +31,6 @@ const CollectionItem = ({
               toggleCartVisibility();
             }
             addItem({
-              _internalId: cartItems.length,
               id: id,
               name: name,
               price: price,

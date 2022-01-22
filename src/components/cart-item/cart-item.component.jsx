@@ -14,7 +14,7 @@ const CartItem = ({ item: { id, name, price, imageUrl, quantity } }) => {
         <h4 style={{ padding: "0px", margin: "0px" }} className="name">
           {name}
         </h4>
-        <span>${quantity > 1 ? quantity + " x " + price : price}</span>
+        <span>{quantity > 1 ? quantity + " x $" + price : "$" + price}</span>
       </div>
     </div>
   );

@@ -48,6 +48,11 @@
   }
 }
 
+.custom-button[name="cart-remove"] {
+  min-width: auto;
+  width: 50px;
+}
+
 .custom-button {
   min-width: 165px;
   width: auto;
