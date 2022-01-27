@@ -13,6 +13,8 @@ import {
 import { createStructuredSelector } from "reselect";
 import { toggleCartVisibility } from "../../redux/cart/cart.actions";
 
+
+
 const CartDropdown = ({
   hidden,
   cartItems,
@@ -57,7 +59,7 @@ const CartDropdown = ({
 
           //<Navigate to="/checkout" replace={true} />;
         }}
-      ></CustomButton>
+      />
     </div>
   );
 };

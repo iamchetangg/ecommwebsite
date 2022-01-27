@@ -13,11 +13,17 @@ export const addItemToCart = (cartItems, cartItemToAdd) => {
 export const removeFromCart = (cartItems, cartItemToRemove) => {
     const existingCartItem = cartItems.find((itm) => itm.id === cartItemToRemove.id && cartItemToRemove.quantity > 1);
     if (existingCartItem) {
-        return cartItems.map(cartItem => cartItem.id === cartItemToRemove.id
+        //console.log('EXISTS :: ', existingCartItem);
+        return cartItems.map(cartItem => {
 
-            ? { ...cartItem, quantity: cartItem.quantity - 1 } : cartItem)
+            //  console.log('MAPPING :: ', cartItem);
+            return cartItem.id === cartItemToRemove.id
+
+                ? { ...cartItem, quantity: cartItem.quantity - 1 } : cartItem;
+        })
     }
     else {
+        //  console.log('ELSE ', existingCartItem);
         cartItems.splice(cartItems.findIndex(itm => {
             // console.log('ITEM : ', itm);
             //console.log('ITEM TO REMOVE : ', cartItemToRemove);

@@ -5,7 +5,7 @@ import { initializeApp } from "@firebase/app";
 
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { getFirestore, getDoc, doc, setDoc, updateDoc } from "firebase/firestore";
-import { setCurrentUser } from "../redux/user/user.actions";
+
 
 //import { getAnalytics } from "firebase/analytics";
 

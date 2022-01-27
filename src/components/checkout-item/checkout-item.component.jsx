@@ -42,7 +42,7 @@ const CheckoutItem = ({
           }}
         >
           {/*  &#x25C0; */}
-          &minus;
+          &#10094;
         </button>
         <span>&nbsp;&nbsp;{quantity}&nbsp;&nbsp;</span>
         <button
@@ -57,7 +57,7 @@ const CheckoutItem = ({
             });
           }}
         >
-          {/*   &#x25B6; */}+
+          {/*   &#x25B6; */}&#10095;
         </button>
       </div>
       <div className="item-block">
@@ -70,7 +70,6 @@ const CheckoutItem = ({
           //  type="submit"
           label="&#x2715;"
           _onClick={() => {
-            console.log("removing");
             removeItem({
               imageUrl: imageUrl,
               name: name,
